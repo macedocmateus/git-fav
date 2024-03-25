@@ -22,7 +22,7 @@ body {
     background-color: rgb(250, 254, 255);
 }
 
-.app {
+#app {
     padding: 2rem;
     max-width: 500px;
     margin: 0 auto;
@@ -144,4 +144,6 @@ td .remove  {
     background: none;
     border: none;
     color: red;
+
+    cursor: pointer;
 }
