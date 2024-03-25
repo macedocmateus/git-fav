@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Favorites</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="./source/main.js" defer></script>
 </head>
 <body>
     <div class="app">
         <header>
         <h1>Github Favorites</h1>
         <div class="search">
-            <label for="input-search">Usuário do Github</label>
+            <label for="input-search" class="sr-only">Usuário do Github</label>
             <input id="input-search"type="text" placeholder="Usuário do Git">
             <button>&plus;</button>
         </div>
@@ -27,17 +30,40 @@
 
             <tbody>
                 <tr>
-                    <td>
-                        <img src="" alt="">
-                        <a href="">
-                            <p></p>
-                            <span></span>
+                    <td class="user">
+                        <img src="https://github.com/macedocmateus.png" alt="">
+                        <a href="https://github.com/macedocmateus" target="_blank">
+                            <p>Mateus Macedo</p>
+                            <span>MateusMacedo</span>
                         </a>
                     </td>
-                    <td></td>
-                    <td></td>
+                    <td class="repositories">
+                        76
+                    </td>
+                    <td class="followers">
+                        9598
+                    </td>
+                    <td class="remove">
+                        <button class="remove">&times;</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="user">
+                        <img src="https://github.com/rafaelqueiroz88.png" alt="">
+                        <a href="https://github.com/rafaelqueiroz88" target="_blank">
+                            <p>Rafael Queiroz</p>
+                            <span>RafaelQueiroz</span>
+                        </a>
+                    </td>
+                    <td class="repositories">
+                        76
+                    </td>
+                    <td class="followers">
+                        9598
+                    </td>
                     <td>
-                        <button>&times;</button>
+                        <button class="remove">&times;</button>
                     </td>
                 </tr>
                 
