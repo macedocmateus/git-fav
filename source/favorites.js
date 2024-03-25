@@ -7,30 +7,17 @@ export class Favorites {
     }
 
     load() {
-        this.users = [
-            {
-                login: 'mateuscmacedo',
-                name: 'Mateus Macedo',
-                public_repos: '76',
-                followers:'50',
-            },
+        this.entries = JSON.parse(localStorage.getItem('@github-favorites:')) || []
 
-            {
-                login: 'falezinqueiroz',
-                name: 'Rafael Queiroz',
-                public_repos: '124',
-                followers:'520',
-            }
-        ]
+        console.log(this.entries);
 
-        
     }
 
     delete(user) {
-        const filteredUsers = this.users
-        .filter(users => users.login !== user.login)
+        const filteredEntries = this.entries
+        .filter(entry => entry.login !== user.login)
 
-        this.users = filteredUsers
+        this.entries = filteredEntries
         this.update()
         
     }
@@ -52,31 +39,18 @@ export class FavoritesView extends Favorites {
     update() {
         this.removeAllTr()
 
-        
-        
-        this.users.forEach( user => {
+        this.entries.forEach(user => {
             const row = this.createRow()
-
-            row.querySelector('.user img').src = `https://github.com/${user.login}.png`
-            row.querySelector('.user img').alt = `Imagem de ${user.name}`
-            row.querySelector('.user p').textContent = user.name
-            row.querySelector('.user span').textContent = user.login
-            row.querySelector('.repositories').textContent = user.public_repos
-            row.querySelector('.followers').textContent = user.followers
             
-            row.querySelector('.remove').onclick = () => {
-                
-                const isOk = confirm('Tem certeza que deseja deletar esse usuário?')
-                
-                if(isOk) {
-                    this.delete(user)
-                }
-            }
-
-            this.tbody.append(row)
-        })
-
-        
+            row.querySelector('.user img').src = `https://github.com/${user.login}.png`
+            row.querySelector('.user p').alt = `Imagem de ${user.name}`
+            row.querySelector('.user p').textCotent = user.name
+            row.querySelector('.user span').textCotent = user.login
+            row.querySelector('.repositories').textCotent = user.public_repos
+            row.querySelector('.followers').textCotent = user.followers
+            
+            this.tbody.append(row);
+        });
 
     }
 
