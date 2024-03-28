@@ -56,14 +56,6 @@ export class Favorites {
         this.save()
     }
 
-    onadd() {
-        const addButton = this.root.querySelector('.search button')
-        addButton.onclick = () => {
-            const { value } = this.root.querySelector('.search input')
-
-            this.add(value)
-        }
-    }
 }
 
     
@@ -77,6 +69,15 @@ export class FavoritesView extends Favorites {
         
         this.update()
         this.onadd()
+    }
+
+    onadd() {
+        const addButton = this.root.querySelector('.search button')
+        addButton.onclick = () => {
+            const { value } = this.root.querySelector('.search input')
+
+            this.add(value)
+        }
     }
 
     update() {
