@@ -1,9 +1,26 @@
 // classe que vai conter a lógica dos dados
 // como os dados ser'~ao estruturados
+
+export class GithubUser {
+    static search(username) {
+        const endpoint = `https://api.github.com/users/${username}`
+
+        return fetch(endpoint).then(data => data.json())
+        .then(({login, name, public_repos, followers}) => ({
+            login,
+            name,
+            public_repos,
+            followers,
+        }))
+    }
+}
+
 export class Favorites {
     constructor(root) {
         this.root = document.querySelector(root)
         this.load()
+
+        GithubUser.search('macedocmateus').then(user => console.log(user) )
     }
 
     load() {
@@ -20,13 +37,20 @@ export class Favorites {
         this.entries = filteredEntries
         this.update()
         
+        
+    }
+
+    onadd() {
+        const addButton = this.root.querySelector('.search button')
+        addButton.onclick = () => {
+            const value = this.root.querySelector('.search input')
+        }
     }
 }
 
     
 
 // classe que vai criar a visualização e eventos do html
-
 export class FavoritesView extends Favorites {
     constructor(root) {
         super(root)
@@ -34,6 +58,7 @@ export class FavoritesView extends Favorites {
         this.tbody = this.root.querySelector('table tbody')
         
         this.update()
+        this.onadd()
     }
 
     update() {
