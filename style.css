@@ -1,51 +1,53 @@
-:root {
-    font-size: 62.5%;
-
-    --ff-primary:'Poppins', sans-serif;
-    --text-color:#303030;
-
-    --hue:194;
-    --primary-color: hsl(var(--hue), 100%, 63%);
-
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 1.6rem;
-    font-family: var(--ff-primary);
-    color: #303030;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --ff-primary: 'Poppins', sans-serif;
+    --text-color: #303030;
+
+    --hue: 194;
+    --primary-color: hsl(var(--hue), 100%, 63%);
 }
 
 body {
-    background-color: rgb(250, 254, 255);
+    font-size: 1.6rem;
+    background-color: rgb(243, 243, 243);
+    color: var(--text-color);
+
 }
 
-#app {
-    padding: 2rem;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin: 2.5rem 0;
+body * {
+    font-family: var(--ff-primary);
 }
 
 .sr-only {
     position: absolute;
     width: 1px;
     height: 1px;
+    overflow: hidden;
     padding: 0;
     margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
+}
+
+#app {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2.5rem 0;
 }
 
 header h1 {
@@ -62,7 +64,7 @@ header h1 {
     height: 3.2rem;
     border: 1px solid #ccc;
     border-radius: .4rem 0 0 .4rem;
-    padding:  0 .8rem;
+    padding: 0 .8rem;
 }
 
 .search button {
@@ -71,18 +73,16 @@ header h1 {
     height: 3.2rem;
     border: none;
     padding: 0 1rem;
-
     cursor: pointer;
 }
 
 .search button:hover {
-    filter:brightness(1.1);
+    filter: brightness(1.1);
 }
 
 table {
     width: 100%;
-    border-collapse: collapse; /* é a bordar da tabela, por padrão ela vem com separate*/
-    
+    border-collapse: collapse;
     box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, .3);
 }
 
@@ -101,21 +101,22 @@ table th {
 table th:first-child {
     border-top-left-radius: .4rem;
 }
+
 table th:last-child {
     border-top-right-radius: .4rem;
-}
-
-table tr:nth-child(odd) { /*Seleciona as linhas impares*/
-    background-color: #ddd;
-}
-
-table tr:nth-child(even) { /*Seleciona as linhas pares*/
-    background-color: #eee;
 }
 
 table td {
     padding: 1.5rem;
     text-align: left;
+}
+
+table tr:nth-child(even) { /* Para pegar os impares */
+    background-color: #eee;
+}
+
+table tr:nth-child(odd) { /* Para pegar os pares */
+    background-color: #ddd;
 }
 
 td.user {
@@ -127,7 +128,6 @@ td.user {
 td.user img {
     width: 5rem;
     height: 5rem;
-
     object-fit: cover;
     border-radius: 50%;
 }
@@ -140,10 +140,8 @@ td.user a p {
     font-weight: bold;
 }
 
-td .remove  {
+td .remove {
     background: none;
     border: none;
     color: red;
-
-    cursor: pointer;
 }
