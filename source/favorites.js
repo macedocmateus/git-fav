@@ -30,6 +30,22 @@ export class Favorites {
         ('@github-favorites:')) || []
     }
 
+    async add(username) {
+      try {
+        const user = await GithubUser.search(username)
+
+        if(user.login === undefined) {
+            throw new Error('Usuário não encontrado!')
+        }
+
+        this.entries = [user, ...this.entries]
+        this.update()
+
+      } catch(error) {
+        alert(error.message)
+      }  
+    }
+
     delete(user) {
         const filteredEntries = this.entries
         .filter(entry => entry.login !== user.login)
@@ -47,6 +63,16 @@ export class FavoritesViews extends Favorites {
         this.tbody = this.root.querySelector('table tbody')
 
         this.update()
+        this.onadd()
+    }
+
+    onadd() {
+        const addButton = this.root.querySelector('.search button')
+        addButton.onclick = () => {
+            const { value } = this.root.querySelector('.search input')
+
+            this.add(value)
+        }
     }
 
     update() {
